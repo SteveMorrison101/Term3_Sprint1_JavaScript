@@ -1,0 +1,20 @@
+{
+  "name": "video-game-index",
+  "version": "1.0.0",
+  "description": "Allows the user to browse a collection of video games, see their reviews and more",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch-path=./ index.js",
+    "test": "jest"
+  },
+  "author": "Matthew English",
+  "license": "MIT",
+  "dependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "jest": "^29.7.0"
+  }
+}
