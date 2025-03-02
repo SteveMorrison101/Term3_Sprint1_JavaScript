@@ -57,6 +57,17 @@ app.get('/top-rated', (req, res) => {
     res.render('top-rated', { topGames });
 });
 
+// Function to get upcoming games
+function getUpcomingGames() {
+    return VideoGames.filter(game => !game.released)
+        .sort((a, b) => a.releaseYear - b.releaseYear); // Sort by release year
+}
+
+app.get('/upcoming', (req, res) => {
+    const upcomingGames = getUpcomingGames();
+    res.render('upcoming', { upcomingGames });
+});
+
 // Server Start
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
