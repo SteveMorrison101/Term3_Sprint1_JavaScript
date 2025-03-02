@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Gems</title>
+    <link rel="stylesheet" type="text/css" href="/css/hidden-gems.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <main class="main-content">
+        <h1 class="glow">💎 Hidden Gaming Gems 💎</h1>
+
+        <div class="game-list">
+            <% hiddenGems.forEach(game => { %>
+                <div class="game-card">
+                    <h2>
+                        <a href="/game/<%= game.title.replace(/\s+/g, '-').toLowerCase() %>">
+                            <%= game.title %>
+                        </a>
+                    </h2>
+                    <p><strong>Release Year:</strong> <%= game.releaseYear %></p>
+                    <p><strong>Genre:</strong> <%= game.genre %></p>
+                    <p><strong>Developer:</strong> <%= game.developer %></p>
+                    <p class="rating"><strong>🔥 Rating:</strong> <%= game.averageRating %>/10</p>
+                    <p class="underrated">🔎 Underrated: <%= game.numberOfReviews %> Reviews</p>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>
