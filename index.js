@@ -9,6 +9,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // FUNCTIONS
 
+// Random game function
+function getRandomGame() {
+    const randomIndex = Math.floor(Math.random() * VideoGames.length);
+    return VideoGames[randomIndex];
+}
+
 // function to get nine random games
 function getRandomGames() {
     const shuffled = [...VideoGames].sort(() => 0.5 - Math.random());
@@ -79,6 +85,11 @@ app.get('/game/:id', (req, res) => {
 app.get('/top-rated', (req, res) => {
     const topGames = getTopRatedGames();
     res.render('top-rated', { topGames });
+});
+
+app.get('/random-game', (req, res) => {
+    const game = getRandomGame();
+    res.redirect(`/game/${game.title.replace(/\s+/g, '-').toLowerCase()}`);
 });
 
 // Server Start
