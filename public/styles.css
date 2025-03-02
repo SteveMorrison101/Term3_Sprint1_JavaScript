@@ -1,23 +1,97 @@
-/* Base styling, feel free to remove or alter */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
 
 body {
-    background: linear-gradient(90deg, rgba(93,142,251,1) 0%, rgba(93,142,251,1) 50%, rgba(0,212,255,1) 100%);
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Lato', sans-serif;
-    display: flex;
-    color: #F6F6F6;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .main-content {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    align-items: center;
-    flex-direction: column;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
 }
 
-.main-content h1 {
-    font-size: 50px;
+.main-content:hover {
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  margin: 10px auto;
+  border-radius: 8px;
+  width: 70%;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+
+li:hover {
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+}
+
+h2 a {
+  text-decoration: none;
+  color: #ff4b2b;
+  font-size: 22px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+h2 a:hover {
+  color: yellow;
+  text-shadow: 0px 0px 10px rgba(255, 255, 0, 0.8);
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4b2b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #ff416c;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+.glow {
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    width: 90%;
+  }
+
+  li {
+    width: 90%;
+  }
+
+  button {
+    width: 100%;
+  }
 }

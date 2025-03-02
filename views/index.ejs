@@ -1,11 +1,32 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Video Game Gallery</title>
-        <link rel="stylesheet" type="text/css" href="./styles.css">
-    </head>
-    <body>
-        <main class="main-content">
-            <h1>Video Game Gallery</h1>
-        </main>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Game Gallery</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <main class="main-content">
+        <h1 class="glow">Video Game Gallery</h1>
+        <ul>
+            <% games.forEach(game => { %>
+                <li>
+                    <h2>
+                        <a href="/game/<%= game.title.replace(/\s+/g, '-').toLowerCase() %>">
+                            <%= game.title %>
+                        </a>
+                    </h2>
+                    <p><strong>Release Year:</strong> <%= game.releaseYear %></p>
+                    <p><strong>Rating:</strong> <%= game.averageRating ? game.averageRating : "Not Rated Yet" %>/10</p>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
 </html>
+
