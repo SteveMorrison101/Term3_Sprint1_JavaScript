@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= game.title %> - Details</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <main class="main-content">
+        <h1 class="glow"><%= game.title %></h1>
+        <p><strong>Developer:</strong> <%= game.developer %></p>
+        <p><strong>Release Year:</strong> <%= game.releaseYear %></p>
+        <p><strong>Genre:</strong> <%= game.genre %></p>
+        <p><strong>Description:</strong> <%= game.description %></p>
+        <p><strong>Rating:</strong> <%= game.averageRating ? game.averageRating + "/10" : "Not Rated Yet" %></p>
+        <p><strong>Reviews:</strong> <%= game.numberOfReviews %></p>
+        <p><strong>Status:</strong> <%= game.released ? "Released" : "Upcoming" %></p>
+
+        <h2 class="glow">Recommended Games</h2>
+        <ul>
+            <% recommendations.forEach(recommended => { %>
+                <li>
+                    <h3>
+                        <a href="/game/<%= recommended.title.replace(/\s+/g, '-').toLowerCase() %>">
+                            <%= recommended.title %>
+                        </a>
+                    </h3>
+                    <p><strong>Release Year:</strong> <%= recommended.releaseYear %></p>
+                    <p><strong>Rating:</strong> <%= recommended.averageRating ? recommended.averageRating + "/10" : "Not Rated Yet" %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>
