@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Games</title>
+    <link rel="stylesheet" type="text/css" href="/css/upcoming.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <main class="main-content">
+        <h1 class="glow">🚀 Upcoming Games 🚀</h1>
+
+        <div class="game-list">
+            <% upcomingGames.forEach(game => { %>
+                <div class="game-card">
+                    <h2>
+                        <%= game.title %>
+                    </h2>
+                    <p><strong>Release Year:</strong> <%= game.releaseYear %></p>
+                    <p><strong>Genre:</strong> <%= game.genre %></p>
+                    <p><strong>Developer:</strong> <%= game.developer %></p>
+                    <p class="coming-soon">🎬 Coming Soon...</p>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>
