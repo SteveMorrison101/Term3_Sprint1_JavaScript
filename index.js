@@ -44,6 +44,19 @@ app.get('/game/:id', (req, res) => {
     res.render('game', { game, recommendations });
 });
 
+// Function to get top rated games
+function getTopRatedGames() {
+    return VideoGames
+        .filter(game => game.averageRating !== null) 
+        .sort((a, b) => b.averageRating - a.averageRating)
+        .slice(0, 15);
+}
+
+app.get('/top-rated', (req, res) => {
+    const topGames = getTopRatedGames();
+    res.render('top-rated', { topGames });
+});
+
 // Server Start
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
